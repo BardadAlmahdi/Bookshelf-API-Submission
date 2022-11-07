@@ -75,7 +75,7 @@ const addBookHandler = (request, h) => {
   return response;
 };
 
-const getAllBooksHandler = (request, h) => {
+const getBooks = (request, h) => {
   const {name, reading, finished} = request.query;
 
   if (name !== undefined) {
@@ -148,7 +148,7 @@ const getAllBooksHandler = (request, h) => {
   }
 };
 
-const getBookByIdHandler = (request, h) => {
+const getBooksId = (request, h) => {
   const {id} = request.params;
   const book = books.filter((b) => b.id === id)[0];
   if (book !== undefined) {
@@ -168,7 +168,7 @@ const getBookByIdHandler = (request, h) => {
   return response;
 };
 
-const editBookByIdHandler = (request, h) => {
+const editBookId = (request, h) => {
   const {id} = request.params;
   const {
     name,
@@ -231,7 +231,7 @@ const editBookByIdHandler = (request, h) => {
   }
 };
 
-const deleteBookByIdHandler = (request, h) => {
+const deleteBookId = (request, h) => {
   const {id} = request.params;
   const index = books.findIndex((book) => book.id === id);
 
@@ -254,9 +254,9 @@ const deleteBookByIdHandler = (request, h) => {
 };
 
 module.exports = {
-  addBookHandler,
-  getAllBooksHandler,
-  getBookByIdHandler,
-  editBookByIdHandler,
-  deleteBookByIdHandler,
+  addBookHandler, 
+  getBooks, 
+  getBooksId, 
+  editBookId, 
+  deleteBookId,
 };
